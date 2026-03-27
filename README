@@ -1,0 +1,31 @@
+# 🐾 Smart Animal Rescue System
+
+## Overview
+
+This project simulates a distributed smart system to support the UN SDG "Life on Land".
+
+It uses gRPC services and JmDNS for service discovery.
+
+---
+
+## Services
+
+* Animal Detection Service
+* Rescue Coordination Service
+* Veterinary Service
+
+---
+
+## Technologies
+
+* Java
+* gRPC
+* Protocol Buffers
+* JmDNS
+
+---
+
+## Status
+
+Project setup started. Implementing Animal Detection Service.
+

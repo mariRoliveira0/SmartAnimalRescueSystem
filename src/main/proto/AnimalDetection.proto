@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package animalDetection;
+
+service AnimalDetectionService {
+
+  rpc ReportAnimal (AnimalReportRequest) returns (AnimalReportResponse);
+
+  rpc StreamDetectedAnimals (EmptyRequest) returns (stream AnimalInfo);
+
+  rpc UploadAnimalReports (stream AnimalReportRequest) returns (UploadSummary);
+}
+
+message EmptyRequest {}
+
+message AnimalReportRequest {
+  string animalId = 1;
+  string species = 2;
+  string location = 3;
+  string condition = 4;
+}
+
+message AnimalReportResponse {
+  string message = 1;
+  bool success = 2;
+}
+
+message AnimalInfo {
+  string animalId = 1;
+  string species = 2;
+  string location = 3;
+  string condition = 4;
+}
+
+message UploadSummary {
+  int32 totalReports = 1;
+}

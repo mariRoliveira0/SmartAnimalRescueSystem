@@ -1,0 +1,38 @@
+syntax = “proto3”;
+
+option java_multiple_files = true;
+option java_package = “generated.grpc.VetService”;
+option java_outer_classname = “VeterinaryServiceImpl”;
+
+package VetService;
+
+service VeterinaryService{
+
+// Unary RPC Client sends treatment data and Server returns confirmation
+rpc AddTreatment(TreatmentRequest)
+returns (TreatmentResponse);
+
+// Server Streaming Client requests treatment History and Server streams multiple treatments
+
+Rpc StreamTreatments(AnimalRequest)
+returns (stream TreatmentInfo);
+}
+message AnimalRequest {
+string animalId = 1;
+}
+message TreatmentRequest {
+
+string animalId = 1;
+string treatment = 2;
+string vetName = 3;
+}
+message TreatmentResponse {
+
+bool success = 1;
+string message = 2;
+}
+message TreatmentInfo {
+string treatment = 1;
+string vetName = 2;
+}
+

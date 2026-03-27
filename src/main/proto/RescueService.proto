@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "generated.grpc.rescueService";
+option java_outer_classname = "RescueServiceImpl";
+
+package rescueService;
+
+service RescueService{
+
+// Unary RPC
+rpc RequestRescue(RescueRequest)
+returns (RescueResponse);
+
+// Server Streaming RPC
+rpc StreamRescueStatus(EmptyRequest)
+returns (stream RescueStatus);
+
+// Bidirectional Streaming RPC
+rpc LiveRescueChat(stream RescueMessage)
+returns (stream RescueMessage);
+}
+message EmptyRequest {}
+message RescueRequest {
+string animalId = 1;
+string location = 2;
+string urgency = 3;
+}
+message RescueResponse {
+string rescueId = 1;
+string status = 2;
+}
+message RescueStatus {
+string rescueId = 1;
+string status = 2;
+}
+message RescueMessage {
+string sender = 1;
+string message = 2;
+}
+
