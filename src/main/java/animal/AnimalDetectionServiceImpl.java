@@ -50,4 +50,41 @@ public class AnimalDetectionServiceImpl extends AnimalDetectionServiceGrpc.Anima
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
+    @Override
+public void streamDetectedAnimals(EmptyRequest request,
+                                  StreamObserver<AnimalInfo> responseObserver) {
+
+    for (AnimalInfo animal : animals) {
+        responseObserver.onNext(animal);
+    }
+
+    responseObserver.onCompleted();
+}
+@Override
+public StreamObserver<AnimalReportRequest> uploadAnimalReports(
+        StreamObserver<UploadSummary> responseObserver) {
+
+    return new StreamObserver<AnimalReportRequest>() {
+
+        int count = 0;
+
+        @Override
+        public void onNext(AnimalReportRequest request) {
+            count++;
+        }
+
+        @Override
+        public void onError(Throwable t) {}
+
+        @Override
+        public void onCompleted() {
+            UploadSummary summary = UploadSummary.newBuilder()
+                    .setTotalReports(count)
+                    .build();
+
+            responseObserver.onNext(summary);
+            responseObserver.onCompleted();
+        }
+    };
+}
 }
