@@ -2,28 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package animal;
+package vet;
 
 /**
  *
  * @author marianarodriguesoliveira
  */
+
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import naming.ServiceRegistrar;
 
-public class AnimalServer {
+public class VetServer {
 
     public static void main(String[] args) throws Exception {
 
-        int port = 50051;
+        int port = 50053;
 
         Server server = ServerBuilder.forPort(port)
-                .addService(new AnimalDetectionServiceImpl())
+                .addService(new VeterinaryServiceImpl())
                 .build()
                 .start();
-        ServiceRegistrar.registerService("_animal._tcp.local.", "AnimalService", port);
-        System.out.println("Animal Server started on port " + port);
+
+        ServiceRegistrar.registerService("_vet._tcp.local.", "VetService", port);
+
+        System.out.println("Veterinary Server started on port " + port);
 
         server.awaitTermination();
     }
