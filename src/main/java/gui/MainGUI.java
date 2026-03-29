@@ -133,6 +133,10 @@ public class MainGUI {
         // Animal
         animalBtn.addActionListener(e -> {
             try {
+                if (idField.getText().isEmpty()) {
+                    output.setText("Error: Animal ID cannot be empty");
+                    return;
+                }
                 ServiceInfo si = ServiceDiscovery.discoverService("_animal._tcp.local.");
 
                 ManagedChannel channel = ManagedChannelBuilder
