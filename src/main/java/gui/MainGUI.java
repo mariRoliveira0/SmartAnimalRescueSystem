@@ -126,6 +126,12 @@ public class MainGUI {
         frame.add(vetBtn);
 
         frame.add(scroll);
+        JButton clearBtn = new JButton("Clear");
+        clearBtn.setBounds(200, 580, 100, 30);
+
+        clearBtn.addActionListener(e -> output.setText(""));
+
+        frame.add(clearBtn);
 
         frame.setVisible(true);
 
