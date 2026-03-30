@@ -28,7 +28,7 @@ public class AnimalDetectionServiceImpl extends AnimalDetectionServiceGrpc.Anima
 public void reportAnimal(AnimalReportRequest request,
                          StreamObserver<AnimalReportResponse> responseObserver) {
 
-    //  Validate input
+    //  Validation input
     if (request.getAnimalId().isEmpty()) {
         responseObserver.onError(
                 io.grpc.Status.INVALID_ARGUMENT

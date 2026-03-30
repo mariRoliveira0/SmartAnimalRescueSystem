@@ -30,7 +30,7 @@ public class MainGUI {
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // ================= ANIMAL =================
+        // animal detection
         JLabel animalTitle = new JLabel("Animal Detection");
         animalTitle.setBounds(20, 10, 200, 25);
 
@@ -55,7 +55,7 @@ public class MainGUI {
         JButton animalBtn = new JButton("Report Animal");
         animalBtn.setBounds(240, 95, 200, 30);
 
-        // ================= RESCUE =================
+        // Rescue field
         JLabel rescueTitle = new JLabel("Rescue Service");
         rescueTitle.setBounds(20, 140, 200, 25);
 
@@ -76,7 +76,7 @@ public class MainGUI {
         JButton rescueBtn = new JButton("Request Rescue");
         rescueBtn.setBounds(180, 215, 200, 30);
 
-        // ================= VET =================
+        // Vet Field
         JLabel vetTitle = new JLabel("Veterinary Service");
         vetTitle.setBounds(20, 260, 200, 25);
 
@@ -95,7 +95,7 @@ public class MainGUI {
         JButton vetBtn = new JButton("Add Treatment");
         vetBtn.setBounds(180, 335, 200, 30);
 
-        // ================= OUTPUT =================
+        // Output message
         JTextArea output = new JTextArea();
         output.setLineWrap(true);
         output.setWrapStyleWord(true);
@@ -105,7 +105,7 @@ public class MainGUI {
         JScrollPane scroll = new JScrollPane(output);
         scroll.setBounds(30, 390, 470, 180);
 
-        // ADD COMPONENTS
+        // add imputs
         frame.add(animalTitle);
         frame.add(idField);
         frame.add(speciesField);
@@ -135,7 +135,7 @@ public class MainGUI {
 
         frame.setVisible(true);
 
-        // ================= ACTIONS =================
+        // actions
         // Animal
         animalBtn.addActionListener(e -> {
             try {

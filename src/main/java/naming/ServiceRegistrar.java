@@ -20,8 +20,8 @@ public class ServiceRegistrar {
             JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
             ServiceInfo serviceInfo = ServiceInfo.create(
-                    serviceType,   // e.g. _animal._tcp.local.
-                    serviceName,   // e.g. AnimalService
+                    serviceType,   //  _animal._tcp.local.
+                    serviceName,   // AnimalService
                     port,
                     "Animal Detection Service"
             );

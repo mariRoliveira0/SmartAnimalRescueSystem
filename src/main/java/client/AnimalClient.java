@@ -22,7 +22,7 @@ public class AnimalClient {
 
     public static void main(String[] args) {
 
-        // Discover service
+        // Discover the service
         ServiceInfo serviceInfo = ServiceDiscovery.discoverService("_animal._tcp.local.");
 
         if (serviceInfo == null) {
@@ -35,17 +35,17 @@ public class AnimalClient {
 
         System.out.println("Connecting to: " + host + ":" + port);
 
-        // Create channel
+        // Create the channel
         ManagedChannel channel = ManagedChannelBuilder
                 .forAddress(host, port)
                 .usePlaintext()
                 .build();
 
-        // Create stub
+        // Create the stub
         AnimalDetectionServiceGrpc.AnimalDetectionServiceBlockingStub stub =
                 AnimalDetectionServiceGrpc.newBlockingStub(channel);
 
-        // Send request
+        // Send the request
         AnimalReportRequest request = AnimalReportRequest.newBuilder()
                 .setAnimalId("A101")
                 .setSpecies("Fox")
